@@ -1,0 +1,108 @@
+{
+  "clientes": [
+    {
+      "id": 1,
+      "nombre": "Juan",
+      "telefono": 102013313,
+      "email": "juan@juan.com",
+      "notas": "El cliente desea una app móvil 📱 ",
+      "empresa": "Codigo Con Juan"
+    },
+    {
+      "id": 2,
+      "nombre": "Karen",
+      "telefono": 138198313,
+      "email": "karen@juan.com",
+      "notas": "El cliente desea una app móvil 📱 ",
+      "empresa": "Codigo Con Juan"
+    },
+    {
+      "id": 3,
+      "nombre": "Josue",
+      "telefono": 31983913,
+      "email": "josue@juan.com",
+      "notas": "El cliente desea una app móvil 📱 ",
+      "empresa": "Codigo Con Juan"
+    },
+    {
+      "id": 4,
+      "nombre": "Miguel",
+      "telefono": 319381983,
+      "email": "miguel@juan.com",
+      "empresa": "Codigo Con Juan",
+      "notas": "El cliente desea una app móvil 📱 "
+    },
+    {
+      "id": 5,
+      "nombre": "Pedro",
+      "telefono": 1398198938,
+      "email": "pedro@juan.com",
+      "empresa": "Codigo Con Juan",
+      "notas": "El cliente desea una app móvil 📱 "
+    },
+    {
+      "nombre": "BRYAN",
+      "empresa": "Ed World TCS",
+      "email": "cryptomtz@hotmail.com",
+      "telefono": "33 16 56 79 52",
+      "notas": "El cliente desea una app móvil 📱 ",
+      "id": 6
+    },
+    {
+      "nombre": "Paquito",
+      "empresa": "TCS",
+      "email": "paquito@mail.com",
+      "telefono": "55 80 76 19 42",
+      "notas": "se necesita crear un ecommerce para este cliente  ❤ ",
+      "id": 7
+    },
+    {
+      "id": 8,
+      "nombre": "Juan",
+      "telefono": 102013313,
+      "email": "juan@juan.com",
+      "notas": "El cliente desea una app móvil 📱 ",
+      "empresa": "Codigo Con Juan"
+    },
+    {
+      "id": 9,
+      "nombre": "Karen",
+      "telefono": 138198313,
+      "email": "karen@juan.com",
+      "notas": "El cliente desea una app móvil 📱 ",
+      "empresa": "Codigo Con Juan"
+    },
+    {
+      "id": 10,
+      "nombre": "Josue",
+      "telefono": 31983913,
+      "email": "josue@juan.com",
+      "notas": "El cliente desea una app móvil 📱 ",
+      "empresa": "Codigo Con Juan"
+    },
+    {
+      "id": 11,
+      "nombre": "Miguel",
+      "telefono": 319381983,
+      "email": "miguel@juan.com",
+      "empresa": "Codigo Con Juan",
+      "notas": "El cliente desea una app móvil 📱 "
+    },
+    {
+      "nombre": "BRYAN",
+      "empresa": "Ed World TCS",
+      "email": "cryptomtz@hotmail.com",
+      "telefono": "33 16 56 79 52",
+      "notas": "El cliente desea una app móvil 📱 ",
+      "id": 13
+    },
+    {
+      "nombre": "Paquito",
+      "empresa": "TCS",
+      "email": "paquito@mail.com",
+      "telefono": "55 80 76 19 42",
+      "notas": "se necesita crear un ecommerce para este cliente  ❤ ",
+      "id": 21
+    }
+  ]
+}

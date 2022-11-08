@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useLoaderData } from "react-router-dom";
 
 import { Cliente } from "../components/Cliente";
+import { obtenerClientes } from "../api/clientes";
 
 const H1 = styled.h1`
   line-height: normal;
@@ -12,15 +13,8 @@ const H1 = styled.h1`
 
 export const loader = () => {
   // fetch a la api de jsonplaceholder
-  return [
-    {
-      id: 1,
-      nombre: "Juan",
-      empresa: "Empresa 1",
-      email: "correo@correo.com",
-      telefono: "123456789",
-    },
-  ];
+  const data = obtenerClientes();
+  return data;
 };
 
 const styleSettings = {
@@ -66,6 +60,12 @@ const Index = () => {
                         className="px-6 py-3 text-left text-xs font-medium text-pink-500 uppercase tracking-wider"
                       >
                         Contacto
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-6 py-3 text-left text-xs font-medium text-pink-500 uppercase tracking-wider"
+                      >
+                        Notas
                       </th>
                       <th
                         scope="col"

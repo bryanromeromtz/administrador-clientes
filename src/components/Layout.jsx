@@ -41,14 +41,6 @@ export const Layout = () => {
               Nuevo Cliente
             </Link>
           </li>
-          <li className="text-gray-800 mb-1">
-            <Link
-              to="/editar/:id"
-              className="p-1 block text-gray-800 hover:text-white rounded transition duration-300 ease-in-out hover:bg-green-500"
-            >
-              Editar Cliente
-            </Link>
-          </li>
         </nav>
       </aside>
       <main className="md:w-3/4  p-10 md:h-screen overflow-scroll">

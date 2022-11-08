@@ -1,22 +1,33 @@
-import React from "react";
+import {
+  useLoaderData,
+  Form,
+  useNavigate,
+  useActionData,
+  redirect,
+} from "react-router-dom";
 import styled from "styled-components";
-import { useNavigate, Form, useActionData, redirect } from "react-router-dom";
+
+import { obtenerCliente } from "../api/clientes";
 import Formulario from "../components/Formulario";
-
 import { Error } from "../components/Error";
-import { agregarCliente } from "../api/clientes";
+import { editarCliente } from "../api/clientes";
 
-const H1 = styled.h1`
-  line-height: normal;
-  font-family: "PT Serif", serif;
-  word-spacing: 0.2em;
-  letter-spacing: 0.1em;
-`;
+export const loader = async ({ params }) => {
+  const cliente = await obtenerCliente(params.id);
+  if (Object.keys(cliente).length === 0) {
+    throw new Response("No se encontró el cliente", {
+      status: 404,
+      statusText: "No hay resultados",
+    });
+  }
+  return { cliente };
+};
 
-export const action = async ({ request }) => {
+export const action = async ({ request, params }) => {
   const formData = await request.formData();
-
   const datos = Object.fromEntries(formData);
+  const { id } = params;
+
   // validate data
   const errores = [];
 
@@ -50,19 +61,27 @@ export const action = async ({ request }) => {
   }
 
   // save data
-  await agregarCliente(datos);
+  await editarCliente(id, datos);
 
   return redirect("/");
 };
 
-const NuevoCliente = () => {
+const H1 = styled.h1`
+  line-height: normal;
+  font-family: "PT Serif", serif;
+  word-spacing: 0.2em;
+  letter-spacing: 0.1em;
+`;
+
+export const EditarCliente = () => {
+  const { cliente } = useLoaderData();
   const navigate = useNavigate();
   const errores = useActionData();
   return (
     <>
-      <H1 className="text-3xl font-bold mb-4 text-center">Nuevo Cliente</H1>
+      <H1 className="text-3xl font-bold mb-4 text-center">Editar Cliente</H1>
       <p className="text-center text-xl">
-        Administra tus clientes desde esta sección
+        Llena todos los campos para editar el cliente
       </p>
       <span className="border-b-2 border-gray-200 w-64 block mx-auto mt-3 mb-10"></span>
       <div
@@ -72,7 +91,7 @@ const NuevoCliente = () => {
         <div className="w-full max-w-lg mt-10">
           <div className="bg-white shadow-md px-8 pt-6 pb-8 mb-4">
             <Form className="grid grid-cols-1 gap-6" method="POST" noValidate>
-              <Formulario />
+              <Formulario cliente={cliente} />
               {errores &&
                 errores.data.errores.map((error, index) => (
                   <Error key={index}>{error}</Error>
@@ -80,7 +99,7 @@ const NuevoCliente = () => {
               <input
                 className="bg-slate-900 hover:bg-slate-700 w-full p-2 text-white uppercase font-bold mt-5"
                 type="submit"
-                value="Guardar Cliente"
+                value="Editar Cliente"
               />
             </Form>
           </div>
@@ -88,7 +107,7 @@ const NuevoCliente = () => {
       </div>
       <div className="flex justify-end position: fixed bottom-9 left-90">
         <button
-          className="bg-teal-500 w-full sm:w-auto font-bold uppercase text-xs rounded py-3 px-3 text-white shadow-md hover:bg-teal-600"
+          className="bg-teal-500 w-full sm:w-auto font-bold uppercase text-xs rounded py-3 px-3 text-white shadow-md hover:bg-teal-600 shadow-lg shadow-cyan-500/60"
           type="button"
           onClick={() => navigate("/")}
         >
@@ -98,5 +117,3 @@ const NuevoCliente = () => {
     </>
   );
 };
-
-export default NuevoCliente;
